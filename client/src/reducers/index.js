@@ -58,7 +58,8 @@ const initialState = {
       time: "10:00am-11:00am",
       name: '',
       phone: '',
-      available: true
+      available: true,
+      last_name: ''
     },
     {
       time: "11:00am-12:00pm",

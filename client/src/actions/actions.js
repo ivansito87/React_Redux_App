@@ -16,6 +16,7 @@ export const selectAppointment = appointmentItem => ({
     name: appointmentItem.name,
     phone: appointmentItem.phone,
     available: appointmentItem.available,
+    last_name: appointmentItem.last_name
   }
 });
 
@@ -34,5 +35,6 @@ export const updateForm = (appointmentItem) => ({
     name: appointmentItem.name,
     phone: appointmentItem.phone,
     available: appointmentItem.available,
+    last_name: appointmentItem.last_name
   }
 });

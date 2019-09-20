@@ -2,59 +2,29 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 class AppointmentItem extends Component {
-  constructor(props) {
-    super(props);
-    // State with constructor
-    this.state = {
-      name: "Ivan"
-    }
-  }
-
-  componentWillMount() {
-
-  }
-
-  componentDidMount() {
-
-  }
-
-  componentWillReceiveProps(nextProps) {
-
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-
-  }
-
-  componentWillUnmount() {
-
-  }
 
   render() {
+
+    let statusClass = this.props.available ? 'bg-gradient-success' : 'bg-gradient-danger';
+    let status = this.props.name ? 'Closed' : 'Open'
+    let phone = this.props.phone ? `${this.props.phone}` : '';
+
     return (
-        <tbody>
-        <tr className="bg-gradient-danger">
-          <th scope="row">9:00 am</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>770-688-7959</td>
-          <td>Closed</td>
+        <tbody onClick={this.props.modal}>
+        <tr className={statusClass} >
+          <th scope="row">{this.props.time}</th>
+          <td>{this.props.name}</td>
+          <td>{this.props.last_name}</td>
+          <td>{phone}</td>
+          <td>{status}</td>
         </tr>
-        <tr className="bg-gradient-success">
+        {/*<tr className="bg-gradient-success">
           <th scope="row">10:00 am</th>
           <td>{""}</td>
           <td>{""}</td>
           <td>{""}</td>
           <td>Open</td>
-        </tr>
+        </tr>*/}
         </tbody>
     );
   }

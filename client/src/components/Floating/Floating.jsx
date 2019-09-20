@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classnames from "classnames";
-
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as Actions from "../../actions/actions"
 // reactstrap components
 import {
   Badge,
@@ -23,47 +25,79 @@ import ListGroupItem from "reactstrap/es/ListGroupItem";
 import CardHeader from "reactstrap/es/CardHeader";
 import ListGroup from "reactstrap/es/ListGroup";
 import AppointmentItem from "../AppointmentItem/AppointmentItem";
+import AppointmentModal from "../AppointmentModal/AppointmentModal";
 
 // import Table from "reactstrap";
 
 class Floating extends Component {
-  constructor(props) {
-    super(props);
-    // State with constructor
-    this.state = {
-      name: "Ivan"
+
+	_openEditModal = (appointmentItem) => {
+	  console.log("here");
+		this.props.action.toggleDialog();
+		this.props.action.selectAppointment(appointmentItem);
+	}
+
+	_closeEditModal = () => {
+		this.props.action.toggleDialog();
+	}
+
+    _handleChange = (e) => {
+
+	  console.log(e.target.value);
+
+		let newSelectedAppointment = {
+			...this.props.selectedAppointment,
+			[e.target.id]: e.target.value
+		};
+		this.props.action.updateForm(newSelectedAppointment);
     }
-  }
 
-  componentWillMount() {
+	_handleSave = () => {
+		let updatedAppointment;
+		// edit state of availability to conditionally render red background
+		if (this.props.selectedAppointment.name !== '' || this.props.selectedAppointment.phone !== '') {
+			updatedAppointment = {
+		    	...this.props.selectedAppointment,
+		    	available: false
+			};
+		} else {
+			updatedAppointment = {
+		    	...this.props.selectedAppointment,
+		    	available: true
+			};
+		}
 
-  }
+		// find selectedApt and replace it in main data src
+		let newAppointmentDataArray = this.props.appointmentData.map(appointment => {
+			if (appointment.time === this.props.selectedAppointment.time) {
+		    	return updatedAppointment;
+			} else {
+		    	return appointment;
+			}
+		});
 
-  componentDidMount() {
+		this.props.action.updateAppointment(newAppointmentDataArray);
+		this.props.action.toggleDialog();
+	}
 
-  }
-
-  componentWillReceiveProps(nextProps) {
-
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-
-  }
-
-  componentWillUnmount() {
-
-  }
+	/* let normaLizeInput = (timeSlot) => {
+	 let timeSlot = lower.charAt(0).toUpperCase() + lower.substring(1);
+  };*/
 
   render() {
+    let appointmentsArray = this.props.appointmentData.map(appointmentItem => {
+      return (<AppointmentItem
+          // onClick={() => this._openEditModal(appointmentItem)}
+          modal={() => this._openEditModal(appointmentItem)}
+          key={appointmentItem.time}
+          time={appointmentItem.time}
+          name={appointmentItem.name}
+          phone={appointmentItem.phone}
+          last_name={appointmentItem.last_name}
+          available={appointmentItem.available}
+      />);
+    });
+
     return (
         <Container>
           <Row className="justify-content-center">
@@ -82,11 +116,16 @@ class Floating extends Component {
                         <th>Status</th>
                       </tr>
                       </thead>
-                      <div onClick={() => {console.log("clicked")}}>
-                      <AppointmentItem
 
+                      {appointmentsArray}
+
+                      <AppointmentModal
+                          open={this.props.open}
+                          handleClose={this._closeEditModal}
+                          selectedAppointment={this.props.selectedAppointment}
+                          handleChange={this._handleChange}
+                          handleSave={this._handleSave}
                       />
-                      </div>
                       {/*<tbody>
                       <tr className="bg-gradient-danger">
                         <th scope="row">9:00 am</th>
@@ -114,6 +153,17 @@ class Floating extends Component {
   }
 }
 
-Floating.propTypes = {};
+const mapStateToProps = (state) => ({
+	appointmentData: state.appointmentData,
+	open: state.open,
+	selectedAppointment: state.selectedAppointment
+});
 
-export default Floating;
+const mapDispatchToProps = (dispatch) => ({
+	action: bindActionCreators(Actions, dispatch)
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Floating);
+
+
