@@ -12,7 +12,7 @@ class SimpleFooter extends React.Component {
   render() {
     return (
         <>
-          <footer className=" footer mb-0 bg-gradient-gray-dark">
+          <footer className=" footer mb-0 mt-5 bg-gradient-gray-dark">
             <Container className="mb-0">
               <Row className=" row-grid align-items-center mb-0">
                 <Col lg="6">
