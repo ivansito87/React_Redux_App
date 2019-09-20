@@ -22,6 +22,7 @@ import {
 import ListGroupItem from "reactstrap/es/ListGroupItem";
 import CardHeader from "reactstrap/es/CardHeader";
 import ListGroup from "reactstrap/es/ListGroup";
+import AppointmentItem from "../AppointmentItem/AppointmentItem";
 
 // import Table from "reactstrap";
 
@@ -81,7 +82,12 @@ class Floating extends Component {
                         <th>Status</th>
                       </tr>
                       </thead>
-                      <tbody>
+                      <div onClick={() => {console.log("clicked")}}>
+                      <AppointmentItem
+
+                      />
+                      </div>
+                      {/*<tbody>
                       <tr className="bg-gradient-danger">
                         <th scope="row">9:00 am</th>
                         <td>Mark</td>
@@ -96,7 +102,7 @@ class Floating extends Component {
                         <td>{""}</td>
                         <td>Open</td>
                       </tr>
-                      </tbody>
+                      </tbody>*/}
                     </Table>
                   </Card>
                 </Col>
