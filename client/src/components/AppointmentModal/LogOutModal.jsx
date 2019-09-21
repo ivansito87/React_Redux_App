@@ -59,15 +59,6 @@ export default class LogoutModal extends React.Component {
                 </div>
               </div>
               <div className="modal-footer">
-                {/*<Button
-                  className="text-white ml-auto"
-                  color="link"
-                  data-dismiss="modal"
-                  type="button"
-                  onClick={this.props.handleClose}
-                >
-                  Close
-                </Button>*/}
                 <Button className="btn-white" color="default" type="button" onClick={this.props.handleClose}>
                   Ok, Got it
                 </Button>
