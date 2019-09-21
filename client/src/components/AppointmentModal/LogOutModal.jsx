@@ -18,14 +18,12 @@ import {
 } from "reactstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-export default class AppointmentModal extends React.Component {
+export default class LogoutModal extends React.Component {
 
 
   render() {
-     let time = this.props.selectedAppointment.time ? this.props.selectedAppointment.time : '';
-    let name = this.props.selectedAppointment.name ? this.props.selectedAppointment.name : '';
-    let phone = this.props.selectedAppointment.phone ? this.props.selectedAppointment.phone : '';
-    let isEnabled = (name !== '' && phone !== '') || (name === '' && phone === '');
+
+
 
     return (
         <>
@@ -49,7 +47,7 @@ export default class AppointmentModal extends React.Component {
                   <CardHeader className="bg-transparent pb-5">
                     <div className="text-dark text-center mt-2 mb-3">
                       <h3 className="text-dark">Please enter your information for the</h3>
-                      <h3 className="text-dark">{ time }</h3>
+                      <h3 className="text-dark">{ "" }</h3>
                       <h3 className="text-dark">time slot</h3>
                     </div>
                   </CardHeader>
@@ -64,7 +62,7 @@ export default class AppointmentModal extends React.Component {
 
                             </InputGroupText>
                           </InputGroupAddon>
-                          <Input label="Name" id="name" value={this.props.selectedAppointment.name} onChange={this.props.handleChange} placeholder={this.props.selectedAppointment.name || "Name"} type="text" />
+                          {/*<Input label="Name" id="name" value={this.props.selectedAppointment.name} onChange={this.props.handleChange} placeholder={this.props.selectedAppointment.name || "Name"} type="text" />*/}
                         </InputGroup>
                       </FormGroup>
                       <FormGroup className="mb-3">
@@ -76,7 +74,7 @@ export default class AppointmentModal extends React.Component {
 
                             </InputGroupText>
                           </InputGroupAddon>
-                          <Input id="last_name" value={this.props.selectedAppointment.last_name} onChange={this.props.handleChange} placeholder={this.props.selectedAppointment.last_name || "Last Name"} type="text" />
+                          {/*<Input id="last_name" value={this.props.selectedAppointment.last_name} onChange={this.props.handleChange} placeholder={this.props.selectedAppointment.last_name || "Last Name"} type="text" />*/}
                         </InputGroup>
                       </FormGroup>
                       <FormGroup>
@@ -86,7 +84,7 @@ export default class AppointmentModal extends React.Component {
                               {/*<i className="ni ni-lock-circle-open" />*/}
                             </InputGroupText>
                           </InputGroupAddon>
-                          <Input label="Phone" id="phone" value={this.props.selectedAppointment.phone} placeholder={this.props.selectedAppointment.phone || "Phone"} type="text" onChange={this.props.handleChange} />
+                          {/*<Input label="Phone" id="phone" value={this.props.selectedAppointment.phone} placeholder={this.props.selectedAppointment.phone || "Phone"} type="text" onChange={this.props.handleChange} />*/}
                         </InputGroup>
                       </FormGroup>
                       <div className="btn-wrapper text-center">

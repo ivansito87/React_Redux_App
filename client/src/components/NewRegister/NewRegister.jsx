@@ -49,8 +49,8 @@ class Register extends React.Component {
       <>
         <DemoNavbar />
         <main ref="main">
-          <section className="section section-shaped section-lg">
-            <div className="shape shape-style-2 bg-gradient-warning">
+          <section className="section section-shaped section-lg bg-gradient-warning">
+            <div className="shape shape-style-1 bg-gradient-warning">
               <span />
               <span />
               <span />

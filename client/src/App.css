@@ -1,3 +1,6 @@
+body, .section, div > .section.container {
+    background-color: #f8fafd;
+}
 
 #textFromMessage{
     text-align: center !important;
@@ -8,8 +11,14 @@ h3 {
     font-weight: bolder;
 }
 
+.card {
+    background-color: #ffffff !important;
+    color: #002c3e ;
+}
+
 .bg-gradient-danger {
     color:white;
+        background: linear-gradient(87deg, #f7444e 0, #f7835c 100%) !important;
 }
 
 td {

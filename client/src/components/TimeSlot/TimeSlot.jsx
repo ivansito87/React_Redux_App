@@ -15,7 +15,8 @@ import {
   InputGroup,
   Container,
   Row,
-  Col
+  Col,
+    UncontrolledTooltip
 } from "reactstrap";
 
 // core components
@@ -48,7 +49,7 @@ class TimeSlot extends React.Component {
           <DemoNavbar />
         <main className="profile-page" ref="main">
           <section className="section-profile-cover section-shaped my-0">
-            <div className="shape shape-style-1 icon-shape-default bg-gradient-warning alpha-4">
+            <div className="shape shape-style-3 icon-shape-default bg-gradient-warning">
               <span />
               <span />
               <span />
@@ -97,69 +98,76 @@ class TimeSlot extends React.Component {
                         <Button
                           className="mr-4"
                           color="info"
-                          href="#pablo"
+                          href="https://www.linkedin.com/in/ivan-rendon/"
                           onClick={e => e.preventDefault()}
                           size="sm"
+                          id="tooltip126536702"
                         >
                           Connect
                         </Button>
+                        <UncontrolledTooltip delay={0} target="tooltip126536702">
+                  Follow Me
+                </UncontrolledTooltip>
                         <Button
                           className="float-right"
                           color="default"
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
+                          href="https://twitter.com/IvanRen19266618"
                           size="sm"
+                          id="tooltip383967593"
                         >
                           Message
                         </Button>
+                        <UncontrolledTooltip delay={0} target="tooltip383967593">
+                  Tweet Me
+                </UncontrolledTooltip>
                       </div>
                     </Col>
                     <Col className="order-lg-1" lg="4">
                       <div className="card-profile-stats d-flex justify-content-center">
                         <div>
-                          <span className="heading">22</span>
-                          <span className="description">Friends</span>
+                          <span className="heading">38</span>
+                          <span className="description">Repositories</span>
                         </div>
                         <div>
-                          <span className="heading">10</span>
-                          <span className="description">Photos</span>
+                          <span className="heading">24</span>
+                          <span className="description">Apps</span>
                         </div>
                         <div>
-                          <span className="heading">89</span>
-                          <span className="description">Comments</span>
+                          <span className="heading">611</span>
+                          <span className="description">Contributions</span>
                         </div>
                       </div>
                     </Col>
                   </Row>
                   <div className="text-center mt-5">
-                    <h3>
-                      Jessica Jones{" "}
-                      <span className="font-weight-light">, 27</span>
+                    <h3 className="display-2 text-dark">
+                      <span className="font-weight-light">Hi, my name is <br/></span>
+                      Ivan Rendon{" "}
                     </h3>
                     <div className="h6 font-weight-300">
                       <i className="ni location_pin mr-2" />
-                      Bucharest, Romania
+                      Smyrna, Georgia
                     </div>
                     <div className="h6 mt-4">
                       <i className="ni business_briefcase-24 mr-2" />
-                      Solution Manager - Creative Tim Officer
+                      Front End Developer - Backend Developer - Full-Stack-Developer
                     </div>
                     <div>
                       <i className="ni education_hat mr-2" />
-                      University of Computer Science
+                      Georgia Institute of Technology
                     </div>
                   </div>
                   <div className="mt-5 py-5 border-top text-center">
                     <Row className="justify-content-center">
                       <Col lg="9">
                         <p>
-                          An artist of considerable range, Ryan — the name taken
-                          by Melbourne-raised, Brooklyn-based Nick Murphy —
-                          writes, performs and records all of his own music,
-                          giving it a warm, intimate feel with a solid groove
-                          structure. An artist of considerable range.
+                          Full-Stack Web Developer specialized in object-oriented programming with
+                          experience in web design and development. Passionate about
+                          approaching programming challenges from different angles. Highly adaptable, flexible
+                          professional who embraces teamwork, collaborating with others or independently to
+                          create meaningful web applications
                         </p>
-                        <a href="#pablo" onClick={e => e.preventDefault()}>
+                        <a href="https://ivanrendon.dev" target="_blank" >
                           Show more
                         </a>
                       </Col>
@@ -169,9 +177,9 @@ class TimeSlot extends React.Component {
               </Card>
             </Container>
             <FluidFloating />
+          <Floating />
           </section>
         </main>
-          <Floating />
         <SimpleFooter />
         </>
     );

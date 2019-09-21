@@ -80,10 +80,6 @@ class Floating extends Component {
 		this.props.action.toggleDialog();
 	}
 
-	/* let normaLizeInput = (timeSlot) => {
-	 let timeSlot = lower.charAt(0).toUpperCase() + lower.substring(1);
-  };*/
-
   render() {
     let appointmentsArray = this.props.appointmentData.map(appointmentItem => {
       return (<AppointmentItem
@@ -99,14 +95,14 @@ class Floating extends Component {
     });
 
     return (
-        <Container>
+        <Container className="section">
           <Row className="justify-content-center">
             <Col lg="12">
               <Row className="row-grid">
                 <Col>
                   <Card className="card-lift--hover shadow border-0">
-                    <CardHeader className="bg-gradient-info display-3 text-white">Hello World</CardHeader>
-                    <Table borderless hover>
+                    <CardHeader className="bg-gradient-warning display-3 text-white text-center">React-Redux Time Slots</CardHeader>
+                    <Table hover>
                       <thead>
                       <tr>
                         <th>Time</th>
@@ -162,7 +158,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
 	action: bindActionCreators(Actions, dispatch)
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Floating);
 

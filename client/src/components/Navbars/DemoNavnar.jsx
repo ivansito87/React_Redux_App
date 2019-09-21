@@ -3,6 +3,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 // JavaScript plugin that hides or shows a component based on your scroll
 import Headroom from "headroom.js";
+import * as Actions from "../../actions/actions"
+import { bindActionCreators } from "redux";
+
 // reactstrap components
 import {
   Button,
@@ -22,6 +25,8 @@ import {
   Col,
   UncontrolledTooltip
 } from "reactstrap";
+import AppointmentModal from "../AppointmentModal/AppointmentModal";
+import LogoutModal from "../AppointmentModal/LogOutModal";
 
 class DemoNavbar extends React.Component {
   componentDidMount() {
@@ -30,8 +35,18 @@ class DemoNavbar extends React.Component {
     headroom.init();
   }
 
+  _closeEditModal = () => {
+
+
+	}
+
+	_openEditModal = (appointmentItem) => {
+
+	}
+
   static handleLogout(){
-    console.log("logged out successful");
+    alert(`Just Kidding!
+    No Back-End in this project.`);
   }
 
   render() {
@@ -44,22 +59,24 @@ class DemoNavbar extends React.Component {
             id="navbar-main"
           >
             <Container>
-              <NavbarBrand className="mr-lg-5" to="/" tag={Link}>
+                <a href="https://ivanrendon.dev" className="icon-linkedin">
+              <NavbarBrand className="mr-lg-5">
                 <img
                   alt="..."
                   src={require("../../assets/img/brand/ivan-react.png")}
                 />
               </NavbarBrand>
+                </a>
               <UncontrolledCollapse navbar toggler="#navbar_global">
                 <div className="navbar-collapse-header">
                   <Row>
                     <Col className="collapse-brand" xs="6">
-                      <Link to="/">
+                      <a href="http://google.com">
                         <img
                           alt="..."
                           src={require("../../assets/img/brand/argon-react.png")}
                         />
-                      </Link>
+                      </a>
                     </Col>
                     <Col className="collapse-close" xs="6">
                       <button className="navbar-toggler" id="navbar_global">
@@ -73,62 +90,64 @@ class DemoNavbar extends React.Component {
                   <UncontrolledDropdown nav>
                     <DropdownToggle nav>
                       <i className="ni ni-ui-04 d-lg-none mr-1" />
-                      <span className="nav-link-inner--text">Connect</span>
+                      <span className="nav-link-inner--text">OTHER PROJECTS</span>
                     </DropdownToggle>
                     <DropdownMenu className="dropdown-menu-xl">
                       <div className="dropdown-menu-inner">
                         <Media
                           className="d-flex align-items-center"
-                          href=""
+                          href="https://ivanrendon.dev"
                           target="_blank"
                         >
                           <div className="icon icon-shape bg-gradient-primary rounded-circle text-white">
-                            <i className="ni ni-spaceship" />
+                            <i className="fas fa-briefcase" />
                           </div>
                           <Media body className="ml-3">
                             <h6 className="heading text-primary mb-md-1">
-                              Getting started
+                              Portfolio
                             </h6>
-                            <p className="description d-none d-md-inline-block mb-0">
-                              Learn how to use Argon compiling Scss, change
-                              brand colors and more.
-                            </p>
                           </Media>
                         </Media>
                         <Media
                           className="d-flex align-items-center"
-                          href="https://demos.creative-tim.com/argon-design-system-react/#/documentation/colors?ref=adsr-navbar"
+                          href="https://code-duel.herokuapp.com"
                           target="_blank"
                         >
                           <div className="icon icon-shape bg-gradient-success rounded-circle text-white">
-                            <i className="ni ni-palette" />
+                            <i className="fas fa-code" />
                           </div>
                           <Media body className="ml-3">
-                            <h6 className="heading text-primary mb-md-1">
-                              Foundation
+                            <h6 className="heading text-success mb-md-1">
+                              CodeDuel
                             </h6>
-                            <p className="description d-none d-md-inline-block mb-0">
-                              Learn more about colors, typography, icons and the
-                              grid system we used for Argon.
-                            </p>
                           </Media>
                         </Media>
                         <Media
                           className="d-flex align-items-center"
-                          href="https://demos.creative-tim.com/argon-design-system-react/#/documentation/alert?ref=adsr-navbar"
+                          href="https://tranquil-spire-91940.herokuapp.com"
                           target="_blank"
                         >
                           <div className="icon icon-shape bg-gradient-warning rounded-circle text-white">
-                            <i className="ni ni-ui-04" />
+                            <i className="fab fa-github" />
                           </div>
                           <Media body className="ml-3">
                             <h5 className="heading text-warning mb-md-1">
-                              Components
+                              GitHub User Serch
                             </h5>
-                            <p className="description d-none d-md-inline-block mb-0">
-                              Browse our 50 beautiful handcrafted components
-                              offered in the Free version.
-                            </p>
+                          </Media>
+                        </Media>
+                        <Media
+                          className="d-flex align-items-center"
+                          href="https://warner-media-movie-search.herokuapp.com"
+                          target="_blank"
+                        >
+                          <div className="icon icon-shape bg-gradient-danger rounded-circle text-white">
+                            <i className="fas fa-video" />
+                          </div>
+                          <Media body className="ml-3">
+                            <h5 className="heading text-danger mb-md-1">
+                              Warner Media Movie Search
+                            </h5>
                           </Media>
                         </Media>
                       </div>
@@ -154,9 +173,23 @@ class DemoNavbar extends React.Component {
             </Container>
           </Navbar>
         </header>
+        <LogoutModal
+                          open={this.props.open}
+                          handleClose={this._closeEditModal}
+                      />
       </>
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+	appointmentData: state.appointmentData,
+	open: state.open,
+	selectedAppointment: state.selectedAppointment
+});
+
+const mapDispatchToProps = (dispatch) => ({
+	action: bindActionCreators(Actions, dispatch)
+});
 
 export default DemoNavbar;
