@@ -2,7 +2,8 @@ import {
   TOGGLE_DIALOG,
   SELECT_APPOINTMENT,
   UPDATE_APPOINTMENT,
-  UPDATE_FORM
+  UPDATE_FORM,
+    TOGGLE_LOGOUT_DIALOG
 } from '../actions/actionTypes';
 
 // just using 1 reducer since so few things to keep track of..
@@ -12,15 +13,22 @@ export default function rootReducer(state = getInitialState(), action) {
       let newState = {
         ...state,
         open: !state.open
-      }
+      };
       localStorage.setItem('data', JSON.stringify(newState));
-      return newState
+      return newState;
+
+    case TOGGLE_LOGOUT_DIALOG:
+      return {
+        ...state,
+        open_logout: !state.open_logout
+      };
 
     case SELECT_APPOINTMENT:
       return {
         ...state,
         selectedAppointment: action.payload
-      }      
+      };
+
     case UPDATE_FORM:
       return {
         ...state,
@@ -31,7 +39,7 @@ export default function rootReducer(state = getInitialState(), action) {
       return {
         ...state,
         appointmentData: action.payload.appointmentData
-      }
+      };
 
     default:
       return state;
@@ -39,22 +47,22 @@ export default function rootReducer(state = getInitialState(), action) {
 }
 
 const getInitialState = () => {
-  var localData = JSON.parse(localStorage.getItem('data'));
+  const localData = JSON.parse(localStorage.getItem('data'));
   if (localData) {
     return localData
   } else {
     return initialState
   }
-}
+};
 
 const initialState = {
   appointmentData: [{
-      time: "9:00am",
-      name: "Ivan",
-      phone: 7706887959,
-      available: false,
-      last_name: "Rendon"
-    },
+    time: "9:00am",
+    name: "Ivan",
+    phone: 7706887959,
+    available: false,
+    last_name: "Rendon"
+  },
     {
       time: "10:00am",
       name: '',
@@ -99,6 +107,13 @@ const initialState = {
     },
     {
       time: "4:00pm",
+      name: '',
+      phone: '',
+      available: true,
+      last_name: ''
+    },
+    {
+      time: "5:00pm",
       name: '',
       phone: '',
       available: true,

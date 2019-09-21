@@ -2,6 +2,10 @@ body, .section, div > .section.container {
     background-color: #f8fafd;
 }
 
+.navbar-brand img {
+    height: 66px !important;
+}
+
 #textFromMessage{
     text-align: center !important;
 }
@@ -39,4 +43,7 @@ td {
 .bg-gradient-success:hover {
         color:white;
     background: linear-gradient(87deg, rgb(129, 184, 155) 0, rgb(123, 183, 171) 100%) !important;
+}
+.close>span:not(.sr-only) {
+    color: white !important;
 }

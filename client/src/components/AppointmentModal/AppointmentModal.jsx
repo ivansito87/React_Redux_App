@@ -45,12 +45,21 @@ export default class AppointmentModal extends React.Component {
               toggle={this.props.handleClose}
             >
               <div className="modal-body p-0">
-                <Card className="bg-secondary shadow border-0">
+                <Card className="bg-gradient-warning shadow border-0">
                   <CardHeader className="bg-transparent pb-5">
                     <div className="text-dark text-center mt-2 mb-3">
-                      <h3 className="text-dark">Please enter your information for the</h3>
-                      <h3 className="text-dark">{ time }</h3>
-                      <h3 className="text-dark">time slot</h3>
+                      <button
+                  aria-label="Close"
+                  className="close text-white"
+                  data-dismiss="modal"
+                  type="button"
+                  onClick={this.props.handleClose}
+                >
+                  <span aria-hidden={true}>×</span>
+                </button>
+                      <h3 className="text-white mt-0 pt-0">Please enter your information for the</h3>
+                      <h3 className="text-white">{ time }</h3>
+                      <h3 className="text-white mb-0">time slot</h3>
                     </div>
                   </CardHeader>
                   <CardBody className="px-lg-5 py-lg-5">
@@ -64,7 +73,7 @@ export default class AppointmentModal extends React.Component {
 
                             </InputGroupText>
                           </InputGroupAddon>
-                          <Input label="Name" id="name" value={this.props.selectedAppointment.name} onChange={this.props.handleChange} placeholder={this.props.selectedAppointment.name || "Name"} type="text" />
+                          <Input label="Name" id="name" value={this.props.selectedAppointment.name} onChange={this.props.handleChange} placeholder={this.props.selectedAppointment.name || "First Name"} type="text" />
                         </InputGroup>
                       </FormGroup>
                       <FormGroup className="mb-3">
@@ -86,7 +95,7 @@ export default class AppointmentModal extends React.Component {
                               {/*<i className="ni ni-lock-circle-open" />*/}
                             </InputGroupText>
                           </InputGroupAddon>
-                          <Input label="Phone" id="phone" value={this.props.selectedAppointment.phone} placeholder={this.props.selectedAppointment.phone || "Phone"} type="text" onChange={this.props.handleChange} />
+                          <Input label="Phone" id="phone" value={this.props.selectedAppointment.phone} placeholder={this.props.selectedAppointment.phone || "Phone Number"} type="text" onChange={this.props.handleChange} />
                         </InputGroup>
                       </FormGroup>
                       <div className="btn-wrapper text-center">
@@ -95,7 +104,7 @@ export default class AppointmentModal extends React.Component {
                         color="danger"
                         onClick={this.props.handleClose}
                       >
-                       Cancel
+                       Delete
                       </Button>
                       <Button
                         className="btn-success btn-icon"

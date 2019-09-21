@@ -2,11 +2,16 @@ import {
   TOGGLE_DIALOG,
   SELECT_APPOINTMENT,
   UPDATE_APPOINTMENT,
-  UPDATE_FORM
+  UPDATE_FORM,
+  TOGGLE_LOGOUT_DIALOG
 } from './actionTypes';
 
 export const toggleDialog = () => ({
   type: TOGGLE_DIALOG,
+});
+
+export const toggleLogoutDialog = () => ({
+  type: TOGGLE_LOGOUT_DIALOG,
 });
 
 export const selectAppointment = appointmentItem => ({
@@ -22,7 +27,7 @@ export const selectAppointment = appointmentItem => ({
 
 export const updateAppointment = (appointmentData) => ({
   type: UPDATE_APPOINTMENT,
-  payload : {
+  payload: {
     appointmentData
   },
   appointmentData

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-// reactstrap components
+
 import {
   Button,
   Card,
@@ -18,6 +17,7 @@ import {
 } from "reactstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
+
 export default class LogoutModal extends React.Component {
 
 
@@ -27,85 +27,50 @@ export default class LogoutModal extends React.Component {
 
     return (
         <>
-          {/*<Button
-              block
-              color="default"
-              type="button"
-              onClick={() => this.toggleModal("formModal")}
-            >
-              Form
-            </Button>*/}
-            <Modal
-              className="modal-dialog-centered"
-              size="sm"
-              // isOpen={this.state.formModal}
+          <Modal
+              className="modal-dialog-centered modal-danger"
+              contentClassName="bg-gradient-warning"
               isOpen={this.props.open}
               toggle={this.props.handleClose}
             >
-              <div className="modal-body p-0">
-                <Card className="bg-secondary shadow border-0">
-                  <CardHeader className="bg-transparent pb-5">
-                    <div className="text-dark text-center mt-2 mb-3">
-                      <h3 className="text-dark">Please enter your information for the</h3>
-                      <h3 className="text-dark">{ "" }</h3>
-                      <h3 className="text-dark">time slot</h3>
-                    </div>
-                  </CardHeader>
-                  <CardBody className="px-lg-5 py-lg-5">
-                    <Form role="form">
-                      <FormGroup className="mb-3">
-                        <InputGroup className="input-group-alternative" autoFocus>
-                          <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-
-                              <i> <FontAwesomeIcon icon="spinner" /> </i>
-
-                            </InputGroupText>
-                          </InputGroupAddon>
-                          {/*<Input label="Name" id="name" value={this.props.selectedAppointment.name} onChange={this.props.handleChange} placeholder={this.props.selectedAppointment.name || "Name"} type="text" />*/}
-                        </InputGroup>
-                      </FormGroup>
-                      <FormGroup className="mb-3">
-                        <InputGroup className="input-group-alternative">
-                          <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-
-                              <i> <FontAwesomeIcon icon="spinner" /> </i>
-
-                            </InputGroupText>
-                          </InputGroupAddon>
-                          {/*<Input id="last_name" value={this.props.selectedAppointment.last_name} onChange={this.props.handleChange} placeholder={this.props.selectedAppointment.last_name || "Last Name"} type="text" />*/}
-                        </InputGroup>
-                      </FormGroup>
-                      <FormGroup>
-                        <InputGroup className="input-group-alternative">
-                          <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-                              {/*<i className="ni ni-lock-circle-open" />*/}
-                            </InputGroupText>
-                          </InputGroupAddon>
-                          {/*<Input label="Phone" id="phone" value={this.props.selectedAppointment.phone} placeholder={this.props.selectedAppointment.phone || "Phone"} type="text" onChange={this.props.handleChange} />*/}
-                        </InputGroup>
-                      </FormGroup>
-                      <div className="btn-wrapper text-center">
-                      <Button
-                        className="btn-danger btn-icon"
-                        color="danger"
-                        onClick={this.props.handleClose}
-                      >
-                       Cancel
-                      </Button>
-                      <Button
-                        className="btn-success btn-icon"
-                        color="success"
-                        onClick={this.props.handleSave}
-                      >
-                       Save
-                      </Button>
-                    </div>
-                    </Form>
-                  </CardBody>
-                </Card>
+              <div className="modal-header">
+                <h6 className="modal-title" id="modal-title-notification">
+                  Your attention is required
+                </h6>
+                <button
+                  aria-label="Close"
+                  className="close"
+                  data-dismiss="modal"
+                  type="button"
+                  onClick={this.props.handleClose}
+                >
+                  <span aria-hidden={true}>×</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <div className="py-3 text-center">
+                  <h1 className="text-warning"><i className="fas fa-exclamation-triangle fa-xlg" /></h1>
+                  <h3 className="mt-4">Just Kidding!</h3>
+                  <h4 className="heading">
+                    Ideally we would implement this in the back-end to log
+                    the user out of the application but for this project
+                    is for demonstration purposes only
+                  </h4>
+                </div>
+              </div>
+              <div className="modal-footer">
+                {/*<Button
+                  className="text-white ml-auto"
+                  color="link"
+                  data-dismiss="modal"
+                  type="button"
+                  onClick={this.props.handleClose}
+                >
+                  Close
+                </Button>*/}
+                <Button className="btn-white" color="default" type="button" onClick={this.props.handleClose}>
+                  Ok, Got it
+                </Button>
               </div>
             </Modal>
           </>
