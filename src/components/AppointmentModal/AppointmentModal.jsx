@@ -12,23 +12,22 @@ import {
   InputGroup,
   Modal,
 } from "reactstrap";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class AppointmentModal extends React.Component {
 
 
   render() {
-    let time = this.props.selectedAppointment.time
-        ? this.props.selectedAppointment.time
-        : '';
+
+    const {selectedAppointment, open, handleClose, handleChange, handleSave} = this.props;
 
     return (
         <>
           <Modal
               className="modal-dialog-centered"
               size="sm"
-              isOpen={this.props.open}
-              toggle={this.props.handleClose}
+              isOpen={open}
+              toggle={handleClose}
           >
             <div className="modal-body p-0">
               <Card className="bg-gradient-warning shadow border-0">
@@ -39,12 +38,12 @@ export default class AppointmentModal extends React.Component {
                         className="close text-white"
                         data-dismiss="modal"
                         type="button"
-                        onClick={this.props.handleClose}
+                        onClick={handleClose}
                     >
                       <span aria-hidden={true}>×</span>
                     </button>
                     <h3 className="text-white mt-0 pt-0">Please enter your information for the</h3>
-                    <h3 className="text-white">{time}</h3>
+                    <h3 className="text-white">{selectedAppointment.time || ""}</h3>
                     <h3 className="text-white mb-0">time slot</h3>
                   </div>
                 </CardHeader>
@@ -59,9 +58,9 @@ export default class AppointmentModal extends React.Component {
                             </i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input label="Name" id="name" value={this.props.selectedAppointment.name}
-                               onChange={this.props.handleChange}
-                               placeholder={this.props.selectedAppointment.name || "First Name"} type="text"/>
+                        <Input label="Name" id="name" value={selectedAppointment.name}
+                               onChange={handleChange}
+                               placeholder={selectedAppointment.name || "First Name"} type="text"/>
                       </InputGroup>
                     </FormGroup>
                     <FormGroup className="mb-3">
@@ -73,9 +72,9 @@ export default class AppointmentModal extends React.Component {
                             </i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input id="last_name" value={this.props.selectedAppointment.last_name}
-                               onChange={this.props.handleChange}
-                               placeholder={this.props.selectedAppointment.last_name || "Last Name"} type="text"/>
+                        <Input id="last_name" value={selectedAppointment.last_name}
+                               onChange={handleChange}
+                               placeholder={selectedAppointment.last_name || "Last Name"} type="text"/>
                       </InputGroup>
                     </FormGroup>
                     <FormGroup>
@@ -84,23 +83,23 @@ export default class AppointmentModal extends React.Component {
                           <InputGroupText>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input label="Phone" id="phone" value={this.props.selectedAppointment.phone}
-                               placeholder={this.props.selectedAppointment.phone || "Phone Number"} type="text"
-                               onChange={this.props.handleChange}/>
+                        <Input label="Phone" id="phone" value={selectedAppointment.phone}
+                               placeholder={selectedAppointment.phone || "Phone Number"} type="text"
+                               onChange={handleChange}/>
                       </InputGroup>
                     </FormGroup>
                     <div className="btn-wrapper text-center">
                       <Button
                           className="btn-danger btn-icon"
                           color="danger"
-                          onClick={this.props.handleClose}
+                          onClick={handleClose}
                       >
                         Delete
                       </Button>
                       <Button
                           className="btn-success btn-icon"
                           color="success"
-                          onClick={this.props.handleSave}
+                          onClick={handleSave}
                       >
                         Save
                       </Button>

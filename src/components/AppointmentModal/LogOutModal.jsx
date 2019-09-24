@@ -7,13 +7,16 @@ import {
 export default class LogoutModal extends React.Component {
 
   render() {
+
+    const {open, handleClose} = this.props;
+
     return (
         <>
           <Modal
               className="modal-dialog-centered modal-danger"
               contentClassName="bg-gradient-warning"
-              isOpen={this.props.open}
-              toggle={this.props.handleClose}
+              isOpen={open}
+              toggle={handleClose}
           >
             <div className="modal-header">
               <h6 className="modal-title" id="modal-title-notification">
@@ -24,7 +27,7 @@ export default class LogoutModal extends React.Component {
                   className="close"
                   data-dismiss="modal"
                   type="button"
-                  onClick={this.props.handleClose}
+                  onClick={handleClose}
               >
                 <span aria-hidden={true}>×</span>
               </button>
@@ -41,7 +44,7 @@ export default class LogoutModal extends React.Component {
               </div>
             </div>
             <div className="modal-footer">
-              <Button className="btn-white" color="default" type="button" onClick={this.props.handleClose}>
+              <Button className="btn-white" color="default" type="button" onClick={handleClose}>
                 Ok, Got it
               </Button>
             </div>

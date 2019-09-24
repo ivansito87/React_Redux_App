@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
+import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import * as Actions from "../../actions/actions"
 import {
   Card,
@@ -12,9 +12,10 @@ import {
 import CardHeader from "reactstrap/es/CardHeader";
 import AppointmentItem from "../AppointmentItem/AppointmentItem";
 import AppointmentModal from "../AppointmentModal/AppointmentModal";
+import TableHeader from "./TableHeader";
 
 
-class Floating extends Component {
+class AppointmentTable extends Component {
 
   _openEditModal = (appointmentItem) => {
     console.log("here");
@@ -82,18 +83,11 @@ class Floating extends Component {
               <Row className="row-grid">
                 <Col>
                   <Card className="card-lift--hover shadow border-0 floating">
-                    <CardHeader className="bg-gradient-warning display-3 text-white text-center">React-Redux Time
-                      Slots</CardHeader>
+                    <CardHeader className="bg-gradient-warning display-3 text-white text-center">
+                      React-Redux Time Slots
+                    </CardHeader>
                     <Table hover>
-                      <thead>
-                      <tr>
-                        <th>Time</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Phone</th>
-                        <th>Status</th>
-                      </tr>
-                      </thead>
+                      <TableHeader />
                       {appointmentsArray}
                       <AppointmentModal
                           open={this.props.open}
@@ -123,6 +117,6 @@ const mapDispatchToProps = (dispatch) => ({
   action: bindActionCreators(Actions, dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Floating);
+export default connect(mapStateToProps, mapDispatchToProps)(AppointmentTable);
 
 

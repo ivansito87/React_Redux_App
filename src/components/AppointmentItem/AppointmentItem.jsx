@@ -4,7 +4,7 @@ class AppointmentItem extends Component {
 
   render() {
 
-    const { available, name, phone, last_name, modal, time } = this.props;
+    const {available, name, phone, last_name, modal, time} = this.props;
 
     let statusClass = available ? 'bg-gradient-success' : 'bg-gradient-danger';
     let status = name ? 'Closed' : 'Open';

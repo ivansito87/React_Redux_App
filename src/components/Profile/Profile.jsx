@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Card, Col, Container, Row, UncontrolledTooltip} from "reactstrap";
 import FluidFloating from "../FluidFloating/FluidFloating";
-import Floating from "../Floating/Floating";
+import AppointmentTable from "../AppointmentTable/AppointmentTable";
 
 class Profile extends Component {
 
@@ -110,7 +110,7 @@ class Profile extends Component {
             </Card>
           </Container>
           <FluidFloating/>
-          <Floating/>
+          <AppointmentTable/>
         </section>
     );
   }
