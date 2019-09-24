@@ -131,7 +131,7 @@ class TimeSlot extends React.Component {
                       </div>
                       <div>
                         <i className="ni education_hat mr-2"/>
-                        Georgia Institute of Technology
+                        Welcome to my Time Slot Scheduler
                       </div>
                     </div>
                     <div className="mt-5 py-5 border-top text-center">
