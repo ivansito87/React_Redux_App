@@ -6,7 +6,7 @@ body, .section, div > .section.container {
     height: 66px !important;
 }
 
-#textFromMessage{
+#textFromMessage {
     text-align: center !important;
 }
 
@@ -17,33 +17,35 @@ h3 {
 
 .card {
     background-color: #ffffff !important;
-    color: #002c3e ;
+    color: #002c3e;
 }
 
 .bg-gradient-danger {
-    color:white;
-        background: linear-gradient(87deg, #f7444e 0, #f7835c 100%) !important;
+    color: white;
+    background: linear-gradient(87deg, #f7444e 0, #f7835c 100%) !important;
 }
 
 td {
     cursor: pointer;
 }
 
-
 .bg-gradient-danger:hover {
-    color:white;
+    color: white;
     background: linear-gradient(87deg, #c03756 0, #c36c3a 100%) !important;
     cursor: pointer;
 }
+
 .bg-gradient-success {
-        color:white;
+    color: white;
 
     background: linear-gradient(87deg, rgb(149, 206, 176) 0, rgb(142, 206, 194) 100%) !important;
 }
+
 .bg-gradient-success:hover {
-        color:white;
+    color: white;
     background: linear-gradient(87deg, rgb(129, 184, 155) 0, rgb(123, 183, 171) 100%) !important;
 }
-.close>span:not(.sr-only) {
+
+.close > span:not(.sr-only) {
     color: white !important;
 }

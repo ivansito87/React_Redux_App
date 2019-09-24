@@ -27,14 +27,14 @@ class DemoNavbar extends React.Component {
   }
 
   _closeEditModal = () => {
-      this.props.action.toggleLogoutDialog();
+    this.props.action.toggleLogoutDialog();
   };
 
   _openEditModal = (appointmentItem) => {
 
   };
 
-   _handleLogout = () => {
+  _handleLogout = () => {
     this.props.action.toggleLogoutDialog();
     /*alert(`Just Kidding!
     No Back-End in this project.`);*/

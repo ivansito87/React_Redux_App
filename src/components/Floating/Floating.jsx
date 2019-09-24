@@ -27,18 +27,16 @@ class Floating extends Component {
   };
 
   _handleChange = (e) => {
-
     let newSelectedAppointment = {
       ...this.props.selectedAppointment,
       [e.target.id]: e.target.value
     };
     this.props.action.updateForm(newSelectedAppointment);
-
   };
 
   _handleSave = () => {
     let updatedAppointment;
-    // edit state of availability to conditionally render red background
+    // edit the state of the time available to render background conditionally
     if (this.props.selectedAppointment.name !== '' || this.props.selectedAppointment.phone !== '') {
       updatedAppointment = {
         ...this.props.selectedAppointment,
@@ -51,7 +49,7 @@ class Floating extends Component {
       };
     }
 
-    // find selectedApt and replace it in main data src
+    // this will help us find the selected appointment and replace it in main data
     let newAppointmentDataArray = this.props.appointmentData.map(appointment => {
       if (appointment.time === this.props.selectedAppointment.time) {
         return updatedAppointment;
@@ -96,9 +94,7 @@ class Floating extends Component {
                         <th>Status</th>
                       </tr>
                       </thead>
-
                       {appointmentsArray}
-
                       <AppointmentModal
                           open={this.props.open}
                           handleClose={this._closeEditModal}

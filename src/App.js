@@ -6,6 +6,7 @@ import "./assets/styles/nucleo/css/nucleo.css";
 import "./assets/css/argon-design-system-react.css";
 import "./assets/styles/font-awesome/css/font-awesome.css";
 import TimeSlot from "./components/TimeSlot/TimeSlot";
+import NotFound from "./pages/404-Not-Found";
 
 export default function APP() {
   return (
@@ -13,7 +14,8 @@ export default function APP() {
         <Router>
           <Switch>
             <Route exact path="/register" component={Register}/>
-            <Route exact path="/time-slot" component={TimeSlot}/>
+            <Route exact path="/" component={TimeSlot}/>
+            <Route component={NotFound}/>
           </Switch>
         </Router>
       </React.Fragment>
