@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Register from "./components/NewRegister/NewRegister";
 import "./App.css";
 import "./assets/styles/nucleo/css/nucleo.css";

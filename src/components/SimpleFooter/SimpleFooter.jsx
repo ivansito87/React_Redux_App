@@ -1,11 +1,9 @@
 import React from "react";
 import "./Footer.css";
 import {
-  Button,
   Container,
   Row,
   Col,
-  UncontrolledTooltip
 } from "reactstrap";
 
 class SimpleFooter extends React.Component {
@@ -15,7 +13,8 @@ class SimpleFooter extends React.Component {
           <footer className=" footer mb-0 bg-gradient-warning">
             <Container className="mb-0">
               <h5 className=" text-white font-weight-bold mb-1 text-center">
-                Made with ❤️ and proudly using &nbsp; <span className="text-info"><i
+                Made with <span role="img" aria-label="Red Heart Love">❤️</span> and proudly using &nbsp; <span
+                  className="text-info"><i
                   className="fab fa-react"/> React </span> and&nbsp; <span className="text-primary"><i
                   className="fas fa-recycle"/> Redux </span>
               </h5>

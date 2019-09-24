@@ -1,13 +1,12 @@
 import React from "react";
-// import {Col, Row, Container} from "../components/Grid";
-import {Jumbotron, Col, Row, Container, Card, Button} from "reactstrap";
+import { Col, Row, Container, Card } from "reactstrap";
 import {Link} from "react-router-dom";
 
 function NotFound() {
   return (
       <section className="section section-lg pt-0 mt-5">
         <Container>
-          <Card className="bg-gradient-warning shadow-lg border-0">
+          <Card className="bg-gradient-warning shadow-lg border-0 floating">
             <div className="p-5">
               <Row className="align-items-center">
                 <Col>
@@ -31,7 +30,7 @@ function NotFound() {
                       to="/"
                       size="lg"
                   >
-                   &laquo; Go Back Home
+                    &laquo; Go Back Home
                   </Link>
                 </Col>
               </Row>

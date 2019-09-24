@@ -1,7 +1,7 @@
 import React from "react";
 import Headroom from "headroom.js";
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import * as Actions from "../../actions/actions"
 import {
   Button,
