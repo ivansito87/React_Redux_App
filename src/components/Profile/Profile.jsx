@@ -1,7 +1,5 @@
-import React, {Component} from 'react';
-import {Button, Card, Col, Container, Row, UncontrolledTooltip} from "reactstrap";
-import FluidFloating from "../FluidFloating/FluidFloating";
-import AppointmentTable from "../AppointmentTable/AppointmentTable";
+import React, { Component } from 'react';
+import { Button, Card, Col, Container, Row, UncontrolledTooltip } from "reactstrap";
 
 class Profile extends Component {
 
@@ -100,7 +98,7 @@ class Profile extends Component {
                         professional who embraces teamwork, collaborating with others or independently to
                         create meaningful web applications
                       </p>
-                      <a href="https://ivanrendon.dev" target="_blank" rel="noopener noreferrer" >
+                      <a href="https://ivanrendon.dev" target="_blank" rel="noopener noreferrer">
                         Show more
                       </a>
                     </Col>
@@ -109,8 +107,6 @@ class Profile extends Component {
               </div>
             </Card>
           </Container>
-          <FluidFloating/>
-          <AppointmentTable/>
         </section>
     );
   }
