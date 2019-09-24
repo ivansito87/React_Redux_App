@@ -83,7 +83,7 @@ class Floating extends Component {
             <Col lg="12">
               <Row className="row-grid">
                 <Col>
-                  <Card className="card-lift--hover shadow border-0">
+                  <Card className="card-lift--hover shadow border-0 floating">
                     <CardHeader className="bg-gradient-warning display-3 text-white text-center">React-Redux Time
                       Slots</CardHeader>
                     <Table hover>
