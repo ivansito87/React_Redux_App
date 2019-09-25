@@ -26,7 +26,6 @@ h3 {
 
 .bg-gradient-danger {
     color: white;
-    background: linear-gradient(87deg, #f7444e 0, #f7835c 100%) !important;
 }
 
 td {
@@ -35,7 +34,8 @@ td {
 
 .bg-gradient-danger:hover {
     color: white;
-    background: linear-gradient(87deg, #c03756 0, #c36c3a 100%) !important;
+    /*background: linear-gradient(to right, #ff416c, #ff4b2b);*/
+    background: linear-gradient(to right, #ff416c, #ff4b2b) !important;
     cursor: pointer;
 }
 

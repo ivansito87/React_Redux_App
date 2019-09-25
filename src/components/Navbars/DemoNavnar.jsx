@@ -81,7 +81,7 @@ class DemoNavbar extends React.Component {
                     <UncontrolledDropdown nav>
                       <DropdownToggle nav>
                         <i className="ni ni-ui-04 d-lg-none mr-1"/>
-                        <span className="nav-link-inner--text">OTHER PROJECTS</span>
+                        <span className="nav-link-inner--text font-weight-bold"><h5 className="text-white">OTHER PROJECTS</h5></span>
                       </DropdownToggle>
                       <DropdownMenu className="dropdown-menu-xl">
                         <div className="dropdown-menu-inner">

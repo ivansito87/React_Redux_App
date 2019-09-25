@@ -9608,9 +9608,6 @@ a.section-darker:hover, a.section-darker:focus, button.section-darker:hover, but
     background: linear-gradient(87deg, #f4f5f7 0, #f4f4f7 100%) !important;
 }
 
-.bg-gradient-success {
-    background: linear-gradient(87deg, #2dce89 0, #2dcecc 100%) !important;
-}
 
 .bg-gradient-info {
     background: linear-gradient(87deg, #11cdef 0, #1171ef 100%) !important;
@@ -9625,12 +9622,14 @@ a.section-darker:hover, a.section-darker:focus, button.section-darker:hover, but
 .bg-gradient-gray-dark {
     background: linear-gradient(87deg, #2dce89 0, #2dce89 100%) !important;
 }
-
+.bg-gradient-danger {
+    background: linear-gradient( 111.4deg,  rgba(246,4,26,1) 0.4%, rgba(251,139,34,1) 100.2% ) !important;
+}
+.bg-gradient-success {
+    background: linear-gradient( 109.6deg,  rgba(58,181,46,1) 11.2%, rgba(0,204,130,1) 91.7% ) !important;
+}
 /*===================================== */
 
-.bg-gradient-danger {
-    background: linear-gradient(87deg, #f5365c 0, #f56036 100%) !important;
-}
 
 .bg-gradient-light {
     background: linear-gradient(87deg, #adb5bd 0, #adaebd 100%) !important;
