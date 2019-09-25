@@ -19,7 +19,7 @@ export default class AppointmentModal extends React.Component {
 
   render() {
 
-    const {selectedAppointment, open, handleClose, handleChange, handleSave} = this.props;
+    const {selectedAppointment, open, handleClose, handleChange, handleSave, handleDelete} = this.props;
 
     return (
         <>
@@ -92,7 +92,7 @@ export default class AppointmentModal extends React.Component {
                       <Button
                           className="btn-danger btn-icon"
                           color="danger"
-                          onClick={handleClose}
+                          onClick={handleDelete}
                       >
                         Delete
                       </Button>

@@ -2,6 +2,10 @@ body, .section, div > .section.container {
     background-color: #f8fafd;
 }
 
+.ivan {
+    background-color: #f8fafd;
+}
+
 .navbar-brand img {
     height: 66px !important;
 }

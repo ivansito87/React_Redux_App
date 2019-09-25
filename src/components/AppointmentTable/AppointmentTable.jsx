@@ -18,9 +18,17 @@ import TableHeader from "./TableHeader";
 class AppointmentTable extends Component {
 
   _openEditModal = (appointmentItem) => {
-    console.log("here");
-    this.props.action.toggleDialog();
-    this.props.action.selectAppointment(appointmentItem);
+    const {action} = this.props;
+    action.toggleDialog();
+    action.selectAppointment(appointmentItem);
+  };
+
+  _handleDelete = () => {
+    const {selectedAppointment} = this.props;
+    selectedAppointment.name = '';
+    selectedAppointment.phone = '';
+    selectedAppointment.last_name = '';
+    this._handleSave();
   };
 
   _closeEditModal = () => {
@@ -28,43 +36,47 @@ class AppointmentTable extends Component {
   };
 
   _handleChange = (e) => {
+    const { selectedAppointment, action } = this.props;
     let newSelectedAppointment = {
-      ...this.props.selectedAppointment,
+      ...selectedAppointment,
       [e.target.id]: e.target.value
     };
-    this.props.action.updateForm(newSelectedAppointment);
+    action.updateForm(newSelectedAppointment);
   };
 
   _handleSave = () => {
     let updatedAppointment;
-    // edit the state of the time available to render background conditionally
-    if (this.props.selectedAppointment.name !== '' || this.props.selectedAppointment.phone !== '') {
+    const {selectedAppointment, appointmentData, action} = this.props;
+
+    if (selectedAppointment.name !== '' || selectedAppointment.phone !== '') {
       updatedAppointment = {
-        ...this.props.selectedAppointment,
+        ...selectedAppointment,
         available: false
       };
     } else {
       updatedAppointment = {
-        ...this.props.selectedAppointment,
+        ...selectedAppointment,
         available: true
       };
     }
 
-    // this will help us find the selected appointment and replace it in main data
-    let newAppointmentDataArray = this.props.appointmentData.map(appointment => {
-      if (appointment.time === this.props.selectedAppointment.time) {
+    let newAppointmentDataArray = appointmentData.map(appointment => {
+      if (appointment.time === selectedAppointment.time) {
         return updatedAppointment;
       } else {
         return appointment;
       }
     });
 
-    this.props.action.updateAppointment(newAppointmentDataArray);
-    this.props.action.toggleDialog();
+    action.updateAppointment(newAppointmentDataArray);
+    action.toggleDialog();
   };
 
   render() {
-    let appointmentsArray = this.props.appointmentData.map(appointmentItem => {
+
+    const { appointmentData, open, selectedAppointment } = this.props;
+
+    let appointmentsArray = appointmentData.map(appointmentItem => {
       return (<AppointmentItem
           modal={() => this._openEditModal(appointmentItem)}
           key={appointmentItem.time}
@@ -77,32 +89,35 @@ class AppointmentTable extends Component {
     });
 
     return (
-        <Container className="section">
-          <Row className="justify-content-center">
-            <Col lg="12">
-              <Row className="row-grid">
-                <Col>
-                  <Card className="card-lift--hover shadow border-0 floating">
-                    <CardHeader className="bg-gradient-warning display-3 text-white text-center">
-                      React-Redux Time Slots
-                    </CardHeader>
-                    <Table hover>
-                      <TableHeader />
-                      {appointmentsArray}
-                      <AppointmentModal
-                          open={this.props.open}
-                          handleClose={this._closeEditModal}
-                          selectedAppointment={this.props.selectedAppointment}
-                          handleChange={this._handleChange}
-                          handleSave={this._handleSave}
-                      />
-                    </Table>
-                  </Card>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Container>
+        <section className="section mt-0">
+          <Container className="section mt-0">
+            <Row className="justify-content-center">
+              <Col lg="12">
+                <Row className="row-grid">
+                  <Col>
+                    <Card className="card-lift--hover shadow border-0 floating">
+                      <CardHeader className="bg-gradient-warning display-3 text-white text-center">
+                        React-Redux Time Slots
+                      </CardHeader>
+                      <Table hover>
+                        <TableHeader/>
+                        {appointmentsArray}
+                        <AppointmentModal
+                            open={open}
+                            handleClose={this._closeEditModal}
+                            selectedAppointment={selectedAppointment}
+                            handleChange={this._handleChange}
+                            handleSave={this._handleSave}
+                            handleDelete={this._handleDelete}
+                        />
+                      </Table>
+                    </Card>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Container>
+        </section>
     );
   }
 }
