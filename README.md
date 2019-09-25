@@ -4,7 +4,7 @@
 ## Approach
 This is a front end application created using React and Redux as part of a coding assessment following the requirements specified in the instructions, I decided to incorporate local storage since the application isn't connected to the back end. 
 I choose to store the appointments in the client's local storage to have persistent data shown in case the user refreshes the page or leaves and comes back.
-Live Demo [here]() 
+Live Demo [here](https://ivansito87.github.io/React_Redux_App) 
 
 ### Instructions
   - Build a page to shows a list of time slots from 9 to 5
@@ -23,10 +23,10 @@ Live Demo [here]()
 - No Back-end for this application
 
 ## Preview
-![Movie Finder](./src/images/preview.png "Preview of Page")
-![Movie Finder](./src/images/preview2.png "Movie Finder Results")
+![Time Slots](./src/images/preview.png "Preview of Page")
+![Time Slots](./src/images/preview2.png "Movie Finder Results")
 
-Click [here](react-redux-appointment-scheduling-sjarrett) for a live demo site.
+Click [here](https://ivansito87.github.io/React_Redux_App) for a live demo site.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
