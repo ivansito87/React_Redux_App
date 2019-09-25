@@ -23,8 +23,8 @@ Live Demo [here](https://ivansito87.github.io/React_Redux_App)
 - No Back-end for this application
 
 ## Preview
-![Time Slots](./src/images/preview.png "Preview of Page")
-![Time Slots](./src/images/preview2.png "Movie Finder Results")
+![Time Slots](./src/images/preview.png "Preview of Profile Section")
+![Time Slots](./src/images/preview2.png "Preview of Time Slots Section")
 
 Click [here](https://ivansito87.github.io/React_Redux_App) for a live demo site.
 
