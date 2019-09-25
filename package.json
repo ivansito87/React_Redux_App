@@ -21,7 +21,7 @@
     "reactstrap": "^8.0.0",
     "redux": "^4.0.4"
   },
-  "homepage": "https://github.com/ivansito87/React_Redux_App",
+  "homepage": "https://ivansito87.github.io/React_Redux_App",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
